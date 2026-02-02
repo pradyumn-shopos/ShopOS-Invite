@@ -13,6 +13,8 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture }) => {
   const [isActive, setIsActive] = useState(false);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [countdown, setCountdown] = useState<number | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     return () => {
@@ -23,6 +25,19 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture }) => {
     };
   }, [stream]);
 
+  // Countdown Logic
+  useEffect(() => {
+    if (countdown === null) return;
+
+    if (countdown > 0) {
+      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (countdown === 0) {
+      takePhoto();
+      setCountdown(null);
+    }
+  }, [countdown]);
+
   // Callback ref to handle video element mounting inside AnimatePresence
   const onVideoMount = useCallback((node: HTMLVideoElement | null) => {
     videoRef.current = node;
@@ -30,6 +45,25 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture }) => {
       node.srcObject = stream;
     }
   }, [stream]);
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        if (e.target?.result) {
+          setCapturedImage(e.target.result as string);
+          onCapture(e.target.result as string);
+          stopCamera(); // Stop camera if running
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const triggerFileUpload = () => {
+    fileInputRef.current?.click();
+  };
 
   const startCamera = async () => {
     try {
@@ -44,6 +78,10 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture }) => {
       console.error("Camera error:", err);
       setError("Camera access denied or unavailable.");
     }
+  };
+
+  const startCountdown = () => {
+    setCountdown(3);
   };
 
   const takePhoto = () => {
@@ -109,6 +147,23 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture }) => {
                 className="w-full h-full object-cover mirror-mode" 
                 style={{ transform: 'scaleX(-1)' }}
               />
+              
+              {/* Countdown Overlay */}
+              <AnimatePresence>
+                {countdown !== null && (
+                  <motion.div 
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1.5, opacity: 1 }}
+                    exit={{ scale: 2, opacity: 0 }}
+                    key={countdown}
+                    className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                  >
+                    <span className="font-hand text-8xl text-white drop-shadow-md">
+                      {countdown > 0 ? countdown : "CHEESE!"}
+                    </span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           ) : (
              <motion.div 
@@ -131,24 +186,40 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture }) => {
 
         {/* Hidden Canvas for capture */}
         <canvas ref={canvasRef} className="hidden" />
+        <input 
+            type="file" 
+            ref={fileInputRef} 
+            onChange={handleFileUpload} 
+            accept="image/*" 
+            className="hidden" 
+        />
       </div>
 
       <div className="flex gap-2 justify-center">
         {!capturedImage && !isActive && (
-             <button 
-                onClick={startCamera}
-                className="flex-1 bg-zinc-900 text-white font-mono text-xs uppercase py-2 hover:bg-zinc-700 transition-colors"
-             >
-                Take Photo
-             </button>
+             <>
+                <button 
+                    onClick={startCamera}
+                    className="flex-1 bg-zinc-900 text-white font-mono text-xs uppercase py-3 hover:bg-zinc-700 transition-colors"
+                >
+                    Camera
+                </button>
+                <button 
+                    onClick={triggerFileUpload}
+                    className="flex-1 bg-white border border-zinc-900 text-zinc-900 font-mono text-xs uppercase py-3 hover:bg-zinc-100 transition-colors"
+                >
+                    Upload
+                </button>
+             </>
         )}
         
         {isActive && (
             <button 
-                onClick={takePhoto}
-                className="flex-1 bg-red-600 text-white font-mono text-xs uppercase py-2 hover:bg-red-700 transition-colors"
+                onClick={startCountdown}
+                disabled={countdown !== null}
+                className="flex-1 bg-red-600 text-white font-mono text-xs uppercase py-2 hover:bg-red-700 transition-colors disabled:opacity-50"
             >
-                Snap
+                {countdown !== null ? "Get Ready..." : "Ready?"}
             </button>
         )}
 

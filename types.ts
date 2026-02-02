@@ -1,4 +1,4 @@
-export type ViewState = 'landing' | 'ticket';
+export type ViewState = 'envelope' | 'confirmation' | 'landing' | 'ticket';
 
 export interface TicketData {
   name: string;

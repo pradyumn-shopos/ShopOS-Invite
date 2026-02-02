@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'motion/react';
 import { NO_BUTTON_PHRASES } from '../constants';
 import { getRandomItem, getRandomInt } from '../utils';
 
-export const RunawayButton: React.FC = () => {
+export const RunawayButton: React.FC<{ initialY?: number }> = ({ initialY = 0 }) => {
   const [text, setText] = useState("NO");
   const controls = useAnimation();
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -25,10 +25,11 @@ export const RunawayButton: React.FC = () => {
     // We want to offset it.
     // Desktop: ~160px right. Mobile: ~100px down.
     const startX = isMobile ? 0 : 160;
-    const startY = isMobile ? 120 : 0;
+    // Use prop if provided, else default
+    const startY = initialY !== 0 ? initialY : (isMobile ? 120 : 0);
     
     controls.set({ x: startX, y: startY });
-  }, [isMobile, controls]);
+  }, [isMobile, controls, initialY]);
 
   const moveButton = () => {
     // If the button ref isn't ready, we can't measure it, so we skip

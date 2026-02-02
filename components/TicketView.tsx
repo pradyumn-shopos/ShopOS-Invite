@@ -16,30 +16,22 @@ export const TicketView: React.FC<TicketViewProps> = ({ onBack }) => {
   const [guestName, setGuestName] = useState('');
   const [customPhoto, setCustomPhoto] = useState<string | null>(null);
   
-  // Auto-print logic
+  // Auto-advance from developing to ready
   useEffect(() => {
     if (step === 'developing') {
       const timer = setTimeout(() => {
         setStep('ready');
-        // Small delay after ready to ensure rendering is stable before print
-        setTimeout(() => window.print(), 500);
       }, 3500); // 3.5s developing time
       return () => clearTimeout(timer);
     }
   }, [step]);
 
-  const handlePrint = () => {
-    // If ready, print immediately
-    if (step === 'ready') {
-      window.print();
-    } else {
-        // If they click generate
-        if (!guestName.trim()) {
-            alert("Who are you? (Enter a name!)");
-            return;
-        }
-        setStep('developing');
+  const handleGenerate = () => {
+    if (!guestName.trim()) {
+        alert("Who are you? (Enter a name!)");
+        return;
     }
+    setStep('developing');
   };
 
   return (
@@ -71,41 +63,41 @@ export const TicketView: React.FC<TicketViewProps> = ({ onBack }) => {
                 <div className="absolute -top-3 -left-3 w-6 h-6 bg-black"></div>
                 <div className="absolute -bottom-3 -right-3 w-6 h-6 bg-pink-500"></div>
 
-                <h2 className="font-hand text-4xl mb-6 text-center">Make it yours</h2>
+                <h2 className="font-hand text-5xl mb-8 text-center text-zinc-900">Make it yours</h2>
                 
-                <div className="space-y-6">
+                <div className="space-y-8">
                     <div>
-                        <label className="block font-mono text-xs uppercase tracking-widest mb-2 text-zinc-500">Who are you?</label>
+                        <label className="block font-mono text-sm font-bold uppercase tracking-widest mb-3 text-zinc-900">Who are you?</label>
                         <input 
                             type="text" 
                             value={guestName}
                             onChange={(e) => setGuestName(e.target.value)}
                             placeholder="Your Name"
-                            className="w-full bg-white border-b-2 border-zinc-300 focus:border-black outline-none px-2 py-3 font-scribble text-3xl placeholder:text-zinc-300 transition-colors"
+                            className="w-full bg-white border-b-4 border-zinc-200 focus:border-black outline-none px-2 py-3 font-scribble text-4xl placeholder:text-zinc-300 transition-colors text-zinc-900"
                             autoFocus
                         />
                     </div>
 
                     <div>
-                         <label className="block font-mono text-xs uppercase tracking-widest mb-2 text-zinc-500">
-                             Mugshot <span className="text-zinc-400 normal-case tracking-normal">(Optional)</span>
+                         <label className="block font-mono text-sm font-bold uppercase tracking-widest mb-3 text-zinc-900">
+                             Mugshot <span className="text-zinc-400 font-normal normal-case tracking-normal">(Optional)</span>
                          </label>
                          <CameraCapture onCapture={setCustomPhoto} />
                     </div>
 
                     <button
-                        onClick={handlePrint}
+                        onClick={handleGenerate}
                         disabled={!guestName.trim()}
                         className={cn(
-                            "w-full bg-black text-white font-mono uppercase tracking-widest py-4 mt-4 transition-all hover:bg-zinc-800 disabled:opacity-50 disabled:cursor-not-allowed",
-                            guestName.trim() ? "shadow-[4px_4px_0px_0px_rgba(236,72,153,1)] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(236,72,153,1)]" : ""
+                            "w-full bg-black text-white font-mono text-lg font-bold uppercase tracking-widest py-5 mt-6 transition-all hover:bg-zinc-800 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg",
+                            guestName.trim() ? "shadow-[6px_6px_0px_0px_rgba(236,72,153,1)] hover:translate-y-[1px] hover:shadow-[3px_3px_0px_0px_rgba(236,72,153,1)]" : ""
                         )}
                     >
-                        Generate & Print
+                        Generate Ticket
                     </button>
                     
-                    <div className="text-center">
-                         <button onClick={onBack} className="text-xs font-mono text-zinc-400 hover:text-black underline">
+                    <div className="text-center pt-2">
+                         <button onClick={onBack} className="text-sm font-mono font-bold text-zinc-400 hover:text-black underline decoration-2 underline-offset-4">
                              Cancel
                          </button>
                     </div>
@@ -158,7 +150,7 @@ export const TicketView: React.FC<TicketViewProps> = ({ onBack }) => {
                             className="group relative inline-flex items-center justify-center gap-2 bg-zinc-900 text-white font-mono text-sm uppercase px-8 py-3 tracking-wider hover:bg-zinc-800 transition-colors shadow-lg"
                         >
                             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                            Re-Print
+                            Print Ticket
                         </button>
 
                         <button 
