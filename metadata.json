@@ -1,0 +1,7 @@
+{
+  "name": "ShopOS Party Invite",
+  "description": "An interactive, playful RSVP experience for the ShopOS office inauguration party.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

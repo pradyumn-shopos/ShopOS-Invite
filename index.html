@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>ShopOS Party Invite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Reenie+Beanie&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+      /* Custom styles for print and specifics */
+      body {
+        font-family: 'Space Mono', monospace;
+        background-color: #fdfbf7; /* Off-white paper */
+        overflow-x: hidden;
+      }
+      .font-hand {
+        font-family: 'Patrick Hand', cursive;
+      }
+      .font-scribble {
+        font-family: 'Reenie Beanie', cursive;
+      }
+      
+      @media print {
+        @page {
+          margin: 0;
+          size: auto;
+        }
+
+        body {
+          background: white;
+        }
+
+        /* Hide everything by default */
+        body * {
+          visibility: hidden;
+        }
+
+        /* Target the specific print container and reset it */
+        .print-container, .print-container * {
+          visibility: visible;
+        }
+
+        .print-container {
+          position: absolute;
+          left: 0 !important;
+          top: 0 !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 20px !important; /* Add some padding so it's not flush against the edge */
+          transform: none !important; /* CRITICAL: Override framer-motion transforms */
+        }
+
+        /* Ensure images and colors print exactly as seen */
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        
+        /* Force images to be visible but keep the vibe */
+        img {
+          display: block !important;
+          visibility: visible !important;
+          max-width: 100% !important;
+          mix-blend-mode: normal !important; /* Blend modes are still risky for print */
+        }
+        
+        /* Re-apply the specific filters for the photo vibe if they were on the image tag directly */
+        /* We can let the inline styles or classes handle this, assuming the browser supports them */
+
+        .printable-ticket {
+          width: 100% !important;
+          max-width: 400px !important;
+          margin: 0 auto !important;
+          transform: none !important;
+          box-shadow: none !important;
+          /* Restore the background color of the ticket */
+          background-color: white !important; 
+          border: none !important; /* Remove the artificial border I added */
+        }
+
+        /* Make sure the internal texture overlays of the ticket are visible */
+        .printable-ticket div[class*="absolute"] {
+           display: block !important;
+           visibility: visible !important;
+           print-color-adjust: exact !important;
+           -webkit-print-color-adjust: exact !important;
+        }
+
+        .no-print {
+          display: none !important;
+        }
+      }
+      
+      /* Grain texture overlay */
+      .paper-grain {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 50;
+        opacity: 0.15; /* Reduced from 0.4 for subtlety */
+        mix-blend-mode: multiply; /* key change: only darken, don't lighten (wash out) */
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "motion/": "https://esm.sh/motion@^12.29.2/",
+    "motion/react": "https://esm.sh/motion@^12.29.2/react",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@^3.4.0",
+    "qrcode.react": "https://esm.sh/qrcode.react@^4.2.0",
+    "clsx": "https://esm.sh/clsx@^2.1.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <div class="paper-grain"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
