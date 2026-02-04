@@ -16,12 +16,12 @@ export const Polaroid: React.FC<PolaroidProps> = ({ className, isDeveloping, gue
 
   return (
     <div className={cn(
-      "bg-white p-4 pb-8 shadow-2xl transform rotate-1 transition-all duration-1000 printable-ticket origin-center",
-      "w-[320px] sm:w-[350px] mx-auto relative",
+      "bg-white p-3 sm:p-4 pb-6 sm:pb-8 shadow-2xl transform rotate-1 transition-all duration-1000 printable-ticket origin-center",
+      "w-64 sm:w-80 md:w-96 mx-auto relative",
       className
     )}>
       {/* Tape Effect */}
-      <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-32 h-10 bg-white/30 rotate-2 backdrop-blur-sm border border-white/40 shadow-sm z-20 pointer-events-none print:hidden"></div>
+      <div className="absolute -top-4 sm:-top-6 left-1/2 -translate-x-1/2 w-24 sm:w-32 h-8 sm:h-10 bg-white/30 rotate-2 backdrop-blur-sm border border-white/40 shadow-sm z-20 pointer-events-none print:hidden"></div>
 
       {/* Photo Area */}
       <div className="bg-zinc-900 w-full aspect-square mb-6 relative overflow-hidden group">
@@ -69,30 +69,30 @@ export const Polaroid: React.FC<PolaroidProps> = ({ className, isDeveloping, gue
       </div>
 
       {/* Handwritten Content */}
-      <div className="px-4 space-y-5 text-center">
-        <h1 className="font-scribble text-6xl sm:text-7xl leading-[0.8] mb-3 -rotate-1 truncate px-2 text-zinc-900 drop-shadow-sm">
+      <div className="px-3 sm:px-4 space-y-3 sm:space-y-5 text-center">
+        <h1 className="font-scribble text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.8] mb-2 sm:mb-3 -rotate-1 truncate px-2 text-zinc-900 drop-shadow-sm">
           {guestName ? guestName : EVENT_DETAILS.name}
         </h1>
         {guestName && (
-             <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400 -mt-2 mb-6">
+             <p className="font-mono text-[9px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400 -mt-1 sm:-mt-2 mb-4 sm:mb-6">
                 Has been summoned
              </p>
         )}
 
-        <div className="font-mono text-sm space-y-2 text-zinc-500 border-t-2 border-b-2 border-zinc-100 py-4 my-5 dashed-border">
+        <div className="font-mono text-xs sm:text-sm space-y-1 sm:space-y-2 text-zinc-500 border-t-2 border-b-2 border-zinc-100 py-3 sm:py-4 my-3 sm:my-5 dashed-border">
             <p className="flex justify-between items-baseline">
-                <span className="font-bold text-xs tracking-widest">WHEN</span>
-                <span className="font-bold text-black text-base">{EVENT_DETAILS.date}</span>
+                <span className="font-bold text-[10px] sm:text-xs tracking-widest">WHEN</span>
+                <span className="font-bold text-black text-sm sm:text-base">{EVENT_DETAILS.date}</span>
             </p>
             <p className="flex justify-between items-baseline">
-                <span className="font-bold text-xs tracking-widest">WHERE</span>
-                <span className="font-bold text-black text-base">{EVENT_DETAILS.location}</span>
+                <span className="font-bold text-[10px] sm:text-xs tracking-widest">WHERE</span>
+                <span className="font-bold text-black text-sm sm:text-base">{EVENT_DETAILS.location}</span>
             </p>
         </div>
 
         <div className="relative py-2">
-            <span className="font-hand text-2xl text-zinc-400 block mb-1">Tonight's Obsession:</span>
-            <span className="font-scribble text-5xl text-pink-600 relative inline-block transform -rotate-2 drop-shadow-sm">
+            <span className="font-hand text-lg sm:text-xl md:text-2xl text-zinc-400 block mb-1">Tonight's Obsession:</span>
+            <span className="font-scribble text-3xl sm:text-4xl md:text-5xl text-pink-600 relative inline-block transform -rotate-2 drop-shadow-sm">
                 {obsession}
                 <svg className="absolute -bottom-2 -left-2 w-[110%] h-4 text-yellow-400 -z-10 opacity-70" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />

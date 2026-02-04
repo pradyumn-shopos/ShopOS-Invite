@@ -125,8 +125,8 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture }) => {
   };
 
   return (
-    <div className="w-full max-w-[320px] mx-auto bg-white p-3 shadow-md rotate-1 border border-zinc-200">
-      <div className="relative aspect-square bg-zinc-100 overflow-hidden mb-3 border border-zinc-200">
+    <div className="w-full max-w-xs mx-auto bg-white p-2 sm:p-3 shadow-md rotate-1 border border-zinc-200">
+      <div className="relative aspect-square bg-zinc-100 overflow-hidden mb-2 sm:mb-3 border border-zinc-200">
         <AnimatePresence mode="wait">
           {capturedImage ? (
             <motion.img 
@@ -158,7 +158,7 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture }) => {
                     key={countdown}
                     className="absolute inset-0 flex items-center justify-center pointer-events-none"
                   >
-                    <span className="font-hand text-8xl text-white drop-shadow-md">
+                    <span className="font-hand text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white drop-shadow-md">
                       {countdown > 0 ? countdown : "CHEESE!"}
                     </span>
                   </motion.div>
@@ -173,11 +173,11 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture }) => {
                className="w-full h-full flex flex-col items-center justify-center text-zinc-400 bg-zinc-50"
              >
                 {error ? (
-                   <span className="text-xs text-red-400 text-center px-4">{error}</span>
+                   <span className="text-[10px] sm:text-xs text-red-400 text-center px-3 sm:px-4">{error}</span>
                 ) : (
-                   <svg className="w-12 h-12 mb-2 opacity-20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                   <svg className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 mb-2 opacity-20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                 )}
-                <span className="font-mono text-xs text-center px-4">
+                <span className="font-mono text-[10px] sm:text-xs text-center px-3 sm:px-4">
                     {error ? "Maybe next time." : "No photo selected"}
                 </span>
              </motion.div>
@@ -195,18 +195,18 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture }) => {
         />
       </div>
 
-      <div className="flex gap-2 justify-center">
+      <div className="flex gap-1 sm:gap-2 justify-center">
         {!capturedImage && !isActive && (
              <>
                 <button 
                     onClick={startCamera}
-                    className="flex-1 bg-zinc-900 text-white font-mono text-xs uppercase py-3 hover:bg-zinc-700 transition-colors"
+                    className="flex-1 bg-zinc-900 text-white font-mono text-[10px] sm:text-xs uppercase py-2 sm:py-3 hover:bg-zinc-700 transition-colors"
                 >
                     Camera
                 </button>
                 <button 
                     onClick={triggerFileUpload}
-                    className="flex-1 bg-white border border-zinc-900 text-zinc-900 font-mono text-xs uppercase py-3 hover:bg-zinc-100 transition-colors"
+                    className="flex-1 bg-white border border-zinc-900 text-zinc-900 font-mono text-[10px] sm:text-xs uppercase py-2 sm:py-3 hover:bg-zinc-100 transition-colors"
                 >
                     Upload
                 </button>
@@ -217,7 +217,7 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture }) => {
             <button 
                 onClick={startCountdown}
                 disabled={countdown !== null}
-                className="flex-1 bg-red-600 text-white font-mono text-xs uppercase py-2 hover:bg-red-700 transition-colors disabled:opacity-50"
+                className="flex-1 bg-red-600 text-white font-mono text-[10px] sm:text-xs uppercase py-1.5 sm:py-2 hover:bg-red-700 transition-colors disabled:opacity-50"
             >
                 {countdown !== null ? "Get Ready..." : "Ready?"}
             </button>
@@ -226,7 +226,7 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture }) => {
         {capturedImage && (
             <button 
                 onClick={clearPhoto}
-                className="flex-1 border border-zinc-300 text-zinc-600 font-mono text-xs uppercase py-2 hover:bg-zinc-50 transition-colors"
+                className="flex-1 border border-zinc-300 text-zinc-600 font-mono text-[10px] sm:text-xs uppercase py-1.5 sm:py-2 hover:bg-zinc-50 transition-colors"
             >
                 Retake
             </button>
