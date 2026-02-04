@@ -13,14 +13,14 @@ export const Background: React.FC = () => {
         }}
       ></div>
 
-      {/* Floating Blobs */}
+      {/* Floating Blobs - Responsive */}
       <motion.div 
         animate={{ 
             y: [0, -20, 0],
             rotate: [0, 5, 0]
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+        className="absolute top-[-10%] left-[-10%] w-[60vw] sm:w-[50vw] md:w-[40vw] h-[60vw] sm:h-[50vw] md:h-[40vw] bg-pink-300 rounded-full mix-blend-multiply filter blur-2xl sm:blur-3xl opacity-15 sm:opacity-20"
       />
       
       <motion.div 
@@ -29,7 +29,7 @@ export const Background: React.FC = () => {
             rotate: [0, -5, 0]
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+        className="absolute bottom-[-10%] right-[-10%] w-[70vw] sm:w-[60vw] md:w-[50vw] h-[70vw] sm:h-[60vw] md:h-[50vw] bg-yellow-200 rounded-full mix-blend-multiply filter blur-2xl sm:blur-3xl opacity-15 sm:opacity-20"
       />
 
        <motion.div 
@@ -37,7 +37,7 @@ export const Background: React.FC = () => {
             scale: [1, 1.1, 1],
         }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[40%] left-[30%] w-[20vw] h-[20vw] bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-10"
+        className="absolute top-[40%] left-[30%] w-[40vw] sm:w-[30vw] md:w-[20vw] h-[40vw] sm:h-[30vw] md:h-[20vw] bg-green-200 rounded-full mix-blend-multiply filter blur-2xl sm:blur-3xl opacity-10"
       />
     </div>
   );

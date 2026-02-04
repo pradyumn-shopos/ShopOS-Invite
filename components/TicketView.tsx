@@ -35,7 +35,7 @@ export const TicketView: React.FC<TicketViewProps> = ({ onBack }) => {
   };
 
   return (
-    <div className="w-full min-h-dvh flex flex-col items-center justify-center p-4 relative">
+    <div className="w-full min-h-dvh flex flex-col items-center justify-center p-3 sm:p-4 relative">
       
       {/* Decorative BG */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none no-print">
@@ -43,7 +43,7 @@ export const TicketView: React.FC<TicketViewProps> = ({ onBack }) => {
              initial={{ opacity: 0 }}
              animate={{ opacity: 0.1 }}
              transition={{ delay: 1 }}
-             className="absolute top-10 right-10 w-40 h-40 text-black"
+             className="absolute top-6 sm:top-10 right-6 sm:right-10 w-24 sm:w-32 md:w-40 h-24 sm:h-32 md:h-40 text-black"
           >
               <SpiralDoodle />
           </motion.div>
@@ -58,28 +58,28 @@ export const TicketView: React.FC<TicketViewProps> = ({ onBack }) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="w-full max-w-md bg-white/50 backdrop-blur-sm p-6 sm:p-8 shadow-xl border border-white/50 rounded-sm relative z-10"
+                className="w-full max-w-lg mx-4 sm:mx-auto bg-white/50 backdrop-blur-sm p-4 sm:p-6 md:p-8 shadow-xl border border-white/50 rounded-sm relative z-10"
             >
-                <div className="absolute -top-3 -left-3 w-6 h-6 bg-black"></div>
-                <div className="absolute -bottom-3 -right-3 w-6 h-6 bg-pink-500"></div>
+                <div className="absolute -top-2 sm:-top-3 -left-2 sm:-left-3 w-4 sm:w-6 h-4 sm:h-6 bg-black"></div>
+                <div className="absolute -bottom-2 sm:-bottom-3 -right-2 sm:-right-3 w-4 sm:w-6 h-4 sm:h-6 bg-pink-500"></div>
 
-                <h2 className="font-hand text-5xl mb-8 text-center text-zinc-900">Make it yours</h2>
+                <h2 className="font-hand text-3xl sm:text-4xl md:text-5xl mb-6 sm:mb-8 text-center text-zinc-900">Make it yours</h2>
                 
-                <div className="space-y-8">
+                <div className="space-y-6 sm:space-y-8">
                     <div>
-                        <label className="block font-mono text-sm font-bold uppercase tracking-widest mb-3 text-zinc-900">Who are you?</label>
+                        <label className="block font-mono text-xs sm:text-sm font-bold uppercase tracking-widest mb-2 sm:mb-3 text-zinc-900">Who are you?</label>
                         <input 
                             type="text" 
                             value={guestName}
                             onChange={(e) => setGuestName(e.target.value)}
                             placeholder="Your Name"
-                            className="w-full bg-white border-b-4 border-zinc-200 focus:border-black outline-none px-2 py-3 font-scribble text-4xl placeholder:text-zinc-300 transition-colors text-zinc-900"
+                            className="w-full bg-white border-b-4 border-zinc-200 focus:border-black outline-none px-2 py-2 sm:py-3 font-scribble text-2xl sm:text-3xl md:text-4xl placeholder:text-zinc-300 transition-colors text-zinc-900"
                             autoFocus
                         />
                     </div>
 
                     <div>
-                         <label className="block font-mono text-sm font-bold uppercase tracking-widest mb-3 text-zinc-900">
+                         <label className="block font-mono text-xs sm:text-sm font-bold uppercase tracking-widest mb-2 sm:mb-3 text-zinc-900">
                              Mugshot <span className="text-zinc-400 font-normal normal-case tracking-normal">(Optional)</span>
                          </label>
                          <CameraCapture onCapture={setCustomPhoto} />
@@ -89,15 +89,15 @@ export const TicketView: React.FC<TicketViewProps> = ({ onBack }) => {
                         onClick={handleGenerate}
                         disabled={!guestName.trim()}
                         className={cn(
-                            "w-full bg-black text-white font-mono text-lg font-bold uppercase tracking-widest py-5 mt-6 transition-all hover:bg-zinc-800 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg",
-                            guestName.trim() ? "shadow-[6px_6px_0px_0px_rgba(236,72,153,1)] hover:translate-y-[1px] hover:shadow-[3px_3px_0px_0px_rgba(236,72,153,1)]" : ""
+                            "w-full bg-black text-white font-mono text-sm sm:text-base md:text-lg font-bold uppercase tracking-widest py-4 sm:py-5 mt-4 sm:mt-6 transition-all hover:bg-zinc-800 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg",
+                            guestName.trim() ? "shadow-[3px_3px_0px_0px_rgba(236,72,153,1)] sm:shadow-[6px_6px_0px_0px_rgba(236,72,153,1)] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(236,72,153,1)] sm:hover:shadow-[3px_3px_0px_0px_rgba(236,72,153,1)]" : ""
                         )}
                     >
                         Generate Ticket
                     </button>
                     
                     <div className="text-center pt-2">
-                         <button onClick={onBack} className="text-sm font-mono font-bold text-zinc-400 hover:text-black underline decoration-2 underline-offset-4">
+                         <button onClick={onBack} className="text-xs sm:text-sm font-mono font-bold text-zinc-400 hover:text-black underline decoration-2 underline-offset-4">
                              Cancel
                          </button>
                     </div>
@@ -113,7 +113,7 @@ export const TicketView: React.FC<TicketViewProps> = ({ onBack }) => {
                 <motion.div 
                     initial={{ opacity: 0 }} 
                     animate={{ opacity: 1 }} 
-                    className="mb-8 text-center font-mono text-xs uppercase tracking-widest text-zinc-500 no-print"
+                    className="mb-6 sm:mb-8 text-center font-mono text-xs uppercase tracking-widest text-zinc-500 no-print"
                 >
                     {step === 'developing' ? (
                         <span className="animate-pulse">Developing Ticket...</span>
@@ -143,19 +143,19 @@ export const TicketView: React.FC<TicketViewProps> = ({ onBack }) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 }}
-                        className="flex flex-col gap-4 items-center mt-12 z-20 no-print"
+                        className="flex flex-col gap-3 sm:gap-4 items-center mt-8 sm:mt-12 z-20 no-print"
                     >
                         <button 
                             onClick={() => window.print()}
-                            className="group relative inline-flex items-center justify-center gap-2 bg-zinc-900 text-white font-mono text-sm uppercase px-8 py-3 tracking-wider hover:bg-zinc-800 transition-colors shadow-lg"
+                            className="group relative inline-flex items-center justify-center gap-2 bg-zinc-900 text-white font-mono text-xs sm:text-sm uppercase px-6 sm:px-8 py-2 sm:py-3 tracking-wider hover:bg-zinc-800 transition-colors shadow-lg"
                         >
-                            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                            <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-green-400 rounded-full animate-pulse"></span>
                             Print Ticket
                         </button>
 
                         <button 
                             onClick={() => setStep('personalize')}
-                            className="text-zinc-400 hover:text-zinc-600 font-hand text-lg underline decoration-wavy underline-offset-4 transition-colors"
+                            className="text-sm sm:text-base md:text-lg text-zinc-400 hover:text-zinc-600 font-hand underline decoration-wavy underline-offset-4 transition-colors"
                         >
                             ← Edit
                         </button>
