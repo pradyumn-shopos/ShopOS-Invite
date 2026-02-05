@@ -158,18 +158,19 @@ export const EnvelopeView: React.FC<EnvelopeViewProps> = ({ onOpen }) => {
           {/* FULL SCREEN LETTER */}
           {step === 'letter' && (
             <motion.div 
-                className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
+                className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-4 overflow-y-auto bg-black/5 backdrop-blur-sm"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
             >
-                <motion.div 
-                    layoutId="letter-paper"
-                    className="w-full max-w-2xl bg-white shadow-2xl p-5 pt-12 sm:p-8 md:p-14 relative -rotate-1 min-h-auto flex flex-col justify-center overflow-hidden my-8"
-                    transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-                >
-                    
-                    {/* Tape */}
+                <div className="w-full min-h-screen flex items-center justify-center py-10 px-2 sm:py-10 pointer-events-none">
+                    <motion.div 
+                        layoutId="letter-paper"
+                        className="w-full max-w-2xl bg-white shadow-2xl p-6 pt-16 pb-12 sm:p-14 relative -rotate-1 min-h-[70vh] flex flex-col justify-center overflow-hidden pointer-events-auto"
+                        transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+                    >
+                        
+                        {/* Tape */}
                     <motion.div 
                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
                         className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-8 bg-pink-200/50 rotate-1"
