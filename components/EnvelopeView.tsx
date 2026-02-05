@@ -277,7 +277,7 @@ export const EnvelopeView: React.FC<EnvelopeViewProps> = ({ onOpen }) => {
                             </div>
                         </div>
                     </motion.div>
-                </motion.div>
+                </div>
             </motion.div>
           )}
 
