@@ -171,111 +171,112 @@ export const EnvelopeView: React.FC<EnvelopeViewProps> = ({ onOpen }) => {
                     >
                         
                         {/* Tape */}
-                    <motion.div 
-                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
-                        className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-8 bg-pink-200/50 rotate-1"
-                    ></motion.div>
+                        <motion.div 
+                            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
+                            className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-8 bg-pink-200/50 rotate-1"
+                        ></motion.div>
 
-                    {/* Doodles */}
-                    <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 0.6, scale: 1 }} transition={{ delay: 0.6 }} className="absolute top-10 right-10 w-12 h-12 text-yellow-400 rotate-12">
-                        <StarDoodle />
-                    </motion.div>
-                    <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 0.4, scale: 1 }} transition={{ delay: 0.7 }} className="absolute bottom-20 left-10 w-16 h-16 text-pink-300 -rotate-12">
-                        <SpiralDoodle />
-                    </motion.div>
+                        {/* Doodles */}
+                        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 0.6, scale: 1 }} transition={{ delay: 0.6 }} className="absolute top-10 right-10 w-12 h-12 text-yellow-400 rotate-12">
+                            <StarDoodle />
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 0.4, scale: 1 }} transition={{ delay: 0.7 }} className="absolute bottom-20 left-10 w-16 h-16 text-pink-300 -rotate-12">
+                            <SpiralDoodle />
+                        </motion.div>
 
-                    <motion.div 
-                        initial={{ opacity: 0, y: 20 }} 
-                        animate={{ opacity: 1, y: 0 }} 
-                        transition={{ delay: 0.3, duration: 0.8 }}
-                        className="relative z-10 space-y-8 text-center"
-                    >
-                        
-                        <div className="space-y-4 pt-4 sm:pt-0">
-                             <h1 className="font-hand text-4xl sm:text-5xl md:text-6xl text-zinc-900 leading-[0.9]">
-                                We need a break.
-                             </h1>
-                             <p className="font-hand text-xl sm:text-2xl text-zinc-400">
-                                (You probably do too.)
-                             </p>
-                        </div>
-
-                        <div className="font-hand text-lg sm:text-xl md:text-2xl text-zinc-700 space-y-4 sm:space-y-6 leading-relaxed text-left max-w-lg mx-auto py-4">
-                            <p>Hey,</p>
-                            <p>
-                                We finally have a place we can call home.
-                            </p>
-                            <p>
-                                So we’re opening the doors and inviting people we like over to see it.
-                            </p>
-                            <p>
-                                We’re hosting a small opening gathering on <span className="font-bold bg-yellow-100 px-1 decoration-wavy underline decoration-pink-300">Feb 23</span> at our new office in <span className="font-bold bg-yellow-100 px-1 decoration-wavy underline decoration-pink-300">HSR,</span> with the ShopOS team, good music, drinks, food, and a bunch of people who’ve been building interesting things for a while now.
-                            </p>
-                            <p>
-                                We’d love for you to drop by, say hi, and spend some time with us.
-                            </p>
-                            <p>
-                                Hope you can make it.
-                            </p>
-                            <p className="pt-2">
-                                — Team ShopOS
-                            </p>
-                        </div>
-
-                        {/* Details */}
-                        <div className="border-t border-dashed border-zinc-200 pt-8 mt-4 relative">
-                             {/* Circle Doodle */}
-                             <div className="absolute -top-6 left-1/4 w-24 h-24 text-pink-400/30 -rotate-6 pointer-events-none">
-                                 <CircleDoodle />
-                             </div>
-
-                             <div className="flex justify-center gap-6 sm:gap-12 font-mono text-xs sm:text-sm uppercase tracking-widest text-zinc-500">
-                                 <div className="text-center">
-                                     <span className="text-zinc-900 font-bold block text-base sm:text-lg mb-1">Feb 23rd</span>
-                                     <span>7:00 PM</span>
-                                 </div>
-                                 <div className="text-center">
-                                     <span className="text-zinc-900 font-bold block text-base sm:text-lg mb-1">ShopOS HSR</span>
-                                     <span>Bangalore</span>
-                                 </div>
-                             </div>
-                        </div>
-
-                        {/* CTA */}
-                        <div className="pt-8 sm:pt-12 pb-6 relative flex flex-col items-center gap-6 sm:gap-8">
-                            <h3 className="font-hand text-xl sm:text-2xl md:text-3xl text-zinc-400 rotate-1 relative inline-block">
-                                Are you in?
-                                <div className="absolute -right-6 sm:-right-8 -top-3 sm:-top-4 w-6 sm:w-8 h-6 sm:h-8 text-zinc-300 rotate-12">
-                                    <ArrowDoodle />
-                                </div>
-                            </h3>
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }} 
+                            animate={{ opacity: 1, y: 0 }} 
+                            transition={{ delay: 0.3, duration: 0.8 }}
+                            className="relative z-10 space-y-8 text-center"
+                        >
                             
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-16 w-full relative min-h-[60px] sm:min-h-[80px]"> 
-                                {/* Runaway NO */}
-                                <motion.button
-                                    initial={{ x: 0, y: 0 }}
-                                    animate={{ 
-                                        x: noBtnPos.x * 0.5, 
-                                        y: noBtnPos.y * 0.5,
-                                        rotate: noBtnPos.x * 0.1 
-                                    }}
-                                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                                    onMouseEnter={handleNoHover}
-                                    onTouchStart={handleNoHover}
-                                    className="absolute bottom-20 sm:bottom-24 left-8 sm:left-20 bg-zinc-100 text-zinc-400 font-mono text-sm sm:text-xl px-4 sm:px-8 py-2 sm:py-3 rounded-sm border border-zinc-200 cursor-not-allowed uppercase tracking-widest hover:bg-zinc-200 z-50"
-                                >
-                                    {noBtnText}
-                                </motion.button>
-
-                                {/* YES */}
-                                <button 
-                                    onClick={onOpen}
-                                    className="relative bg-pink-500 text-white font-hand text-2xl sm:text-3xl md:text-4xl px-8 sm:px-16 py-3 sm:py-5 hover:-translate-y-1 transition-transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] border-2 border-black z-10"
-                                >
-                                    YES!
-                                </button>
+                            <div className="space-y-4 pt-4 sm:pt-0">
+                                 <h1 className="font-hand text-4xl sm:text-5xl md:text-6xl text-zinc-900 leading-[0.9]">
+                                    We need a break.
+                                 </h1>
+                                 <p className="font-hand text-xl sm:text-2xl text-zinc-400">
+                                    (You probably do too.)
+                                 </p>
                             </div>
-                        </div>
+
+                            <div className="font-hand text-lg sm:text-xl md:text-2xl text-zinc-700 space-y-4 sm:space-y-6 leading-relaxed text-left max-w-lg mx-auto py-4">
+                                <p>Hey,</p>
+                                <p>
+                                    We finally have a place we can call home.
+                                </p>
+                                <p>
+                                    So we’re opening the doors and inviting people we like over to see it.
+                                </p>
+                                <p>
+                                    We’re hosting a small opening gathering on <span className="font-bold bg-yellow-100 px-1 decoration-wavy underline decoration-pink-300">Feb 23</span> at our new office in <span className="font-bold bg-yellow-100 px-1 decoration-wavy underline decoration-pink-300">HSR,</span> with the ShopOS team, good music, drinks, food, and a bunch of people who’ve been building interesting things for a while now.
+                                </p>
+                                <p>
+                                    We’d love for you to drop by, say hi, and spend some time with us.
+                                </p>
+                                <p>
+                                    Hope you can make it.
+                                </p>
+                                <p className="pt-2">
+                                    — Team ShopOS
+                                </p>
+                            </div>
+
+                            {/* Details */}
+                            <div className="border-t border-dashed border-zinc-200 pt-8 mt-4 relative">
+                                 {/* Circle Doodle */}
+                                 <div className="absolute -top-6 left-1/4 w-24 h-24 text-pink-400/30 -rotate-6 pointer-events-none">
+                                     <CircleDoodle />
+                                 </div>
+
+                                 <div className="flex justify-center gap-6 sm:gap-12 font-mono text-xs sm:text-sm uppercase tracking-widest text-zinc-500">
+                                     <div className="text-center">
+                                         <span className="text-zinc-900 font-bold block text-base sm:text-lg mb-1">Feb 23rd</span>
+                                         <span>7:00 PM</span>
+                                     </div>
+                                     <div className="text-center">
+                                         <span className="text-zinc-900 font-bold block text-base sm:text-lg mb-1">ShopOS HSR</span>
+                                         <span>Bangalore</span>
+                                     </div>
+                                 </div>
+                            </div>
+
+                            {/* CTA */}
+                            <div className="pt-8 sm:pt-12 pb-6 relative flex flex-col items-center gap-6 sm:gap-8">
+                                <h3 className="font-hand text-xl sm:text-2xl md:text-3xl text-zinc-400 rotate-1 relative inline-block">
+                                    Are you in?
+                                    <div className="absolute -right-6 sm:-right-8 -top-3 sm:-top-4 w-6 sm:w-8 h-6 sm:h-8 text-zinc-300 rotate-12">
+                                        <ArrowDoodle />
+                                    </div>
+                                </h3>
+                                
+                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-16 w-full relative min-h-[60px] sm:min-h-[80px]"> 
+                                    {/* Runaway NO */}
+                                    <motion.button
+                                        initial={{ x: 0, y: 0 }}
+                                        animate={{ 
+                                            x: noBtnPos.x * 0.5, 
+                                            y: noBtnPos.y * 0.5,
+                                            rotate: noBtnPos.x * 0.1 
+                                        }}
+                                        transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                                        onMouseEnter={handleNoHover}
+                                        onTouchStart={handleNoHover}
+                                        className="absolute bottom-20 sm:bottom-24 left-8 sm:left-20 bg-zinc-100 text-zinc-400 font-mono text-sm sm:text-xl px-4 sm:px-8 py-2 sm:py-3 rounded-sm border border-zinc-200 cursor-not-allowed uppercase tracking-widest hover:bg-zinc-200 z-50"
+                                    >
+                                        {noBtnText}
+                                    </motion.button>
+
+                                    {/* YES */}
+                                    <button 
+                                        onClick={onOpen}
+                                        className="relative bg-pink-500 text-white font-hand text-2xl sm:text-3xl md:text-4xl px-8 sm:px-16 py-3 sm:py-5 hover:-translate-y-1 transition-transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] border-2 border-black z-10"
+                                    >
+                                        YES!
+                                    </button>
+                                </div>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 </div>
             </motion.div>
