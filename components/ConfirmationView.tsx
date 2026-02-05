@@ -15,7 +15,10 @@ export const ConfirmationView: React.FC<ConfirmationViewProps> = ({ onCreateBadg
   }, []);
 
   // Generate Google Calendar Link
-  const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(EVENT_DETAILS.name)}&dates=20250223T190000/20250223T230000&details=${encodeURIComponent(EVENT_DETAILS.description)}&location=${encodeURIComponent(EVENT_DETAILS.location)}&sf=true&output=xml`;
+  const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(EVENT_DETAILS.name)}&dates=20260223T190000/20260223T230000&details=${encodeURIComponent(EVENT_DETAILS.description)}&location=${encodeURIComponent(EVENT_DETAILS.location)}&sf=true&output=xml`;
+
+  // Email RSVP Link
+  const emailRsvpUrl = `mailto:ajay@shopos.ai?subject=RSVP: ShopOS Office Warming&body=Hey Ajay,%0A%0ACount me in for the office warming on Feb 23rd!%0A%0ASee you there.`;
 
   return (
     <div className="w-full min-h-dvh flex flex-col items-center justify-center p-3 sm:p-4 relative overflow-hidden bg-[#FDFBF7]">
@@ -66,17 +69,26 @@ export const ConfirmationView: React.FC<ConfirmationViewProps> = ({ onCreateBadg
         </div>
 
         {/* Primary Actions */}
-        <div className="flex flex-col gap-3 sm:gap-6 items-center justify-center w-full pt-6 sm:pt-8">
-            <a 
-                href={gCalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-white text-zinc-900 border-2 border-zinc-900 font-mono font-bold uppercase tracking-widest px-4 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm hover:bg-zinc-50 transition-transform hover:-translate-y-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-sm flex items-center justify-center gap-3"
-            >
-                <span>📅 Add to Calendar</span>
-            </a>
+        <div className="flex flex-col gap-3 sm:gap-4 items-center justify-center w-full pt-6 sm:pt-8">
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                <a 
+                    href={gCalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto bg-white text-zinc-900 border-2 border-zinc-900 font-mono font-bold uppercase tracking-widest px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm hover:bg-zinc-50 transition-transform hover:-translate-y-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] rounded-sm flex items-center justify-center gap-2"
+                >
+                    <span>📅 Add to Calendar</span>
+                </a>
 
-            <div className="relative w-full sm:w-auto">
+                <a 
+                    href={emailRsvpUrl}
+                    className="w-full sm:w-auto bg-white text-zinc-900 border-2 border-zinc-900 font-mono font-bold uppercase tracking-widest px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm hover:bg-zinc-50 transition-transform hover:-translate-y-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] rounded-sm flex items-center justify-center gap-2"
+                >
+                    <span>✉️ RSVP via Email</span>
+                </a>
+            </div>
+
+            <div className="relative w-full sm:w-auto mt-4">
                 <button 
                     onClick={onCreateBadge}
                     className="w-full sm:w-auto bg-pink-500 text-white font-hand text-xl sm:text-2xl md:text-3xl px-6 sm:px-12 py-3 sm:py-4 hover:-translate-y-1 transition-transform shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-black relative z-10"

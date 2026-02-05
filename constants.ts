@@ -1,9 +1,9 @@
 export const EVENT_DETAILS = {
-  name: "ShopOS HSR Office Inauguration Night",
+  name: "ShopOS Office Warming",
   date: "23rd February",
   time: "7:00 PM – 11:00 PM",
-  location: "ShopOS, HSR",
-  description: "Drinks. Music. Zero boring speeches. Come for the vibes. Stay for the obsession.",
+  location: "Urban Vault 1781, 19th Main Rd, HSR Layout, Bengaluru",
+  description: "New office. Good people. Drinks & Dinner. See you there!",
 };
 
 export const NO_BUTTON_PHRASES = [
