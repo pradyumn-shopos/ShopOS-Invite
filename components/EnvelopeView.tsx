@@ -190,31 +190,34 @@ export const EnvelopeView: React.FC<EnvelopeViewProps> = ({ onOpen }) => {
                         className="relative z-10 space-y-8 text-center"
                     >
                         
-                        <div className="space-y-3">
-                             <h1 className="font-hand text-3xl sm:text-5xl md:text-6xl text-zinc-900 leading-[0.9]">
+                        <div className="space-y-4 pt-4 sm:pt-0">
+                             <h1 className="font-hand text-4xl sm:text-5xl md:text-6xl text-zinc-900 leading-[0.9]">
                                 We need a break.
                              </h1>
-                             <p className="font-hand text-lg sm:text-2xl text-zinc-400">
+                             <p className="font-hand text-xl sm:text-2xl text-zinc-400">
                                 (You probably do too.)
                              </p>
                         </div>
 
-                        <div className="font-hand text-base sm:text-lg md:text-2xl text-zinc-700 space-y-4 sm:space-y-6 leading-relaxed text-left max-w-lg mx-auto py-4">
+                        <div className="font-hand text-lg sm:text-xl md:text-2xl text-zinc-700 space-y-4 sm:space-y-6 leading-relaxed text-left max-w-lg mx-auto py-4">
                             <p>Hey,</p>
                             <p>
-                                We've been heads-down for a while - shipping, fixing, shipping again.
-                                Things are finally moving in the right direction, and we're starting to see real traction.
-                                But honestly, it's been a lot.
+                                We finally have a place we can call home.
                             </p>
                             <p>
-                                So we're pausing for one evening and inviting you to our new home, the <span className="bg-yellow-100 px-1 decoration-wavy underline decoration-pink-300">ShopOS office in HSR.</span>
+                                So we’re opening the doors and inviting people we like over to see it.
                             </p>
                             <p>
-                                Just the ShopOS team, good music, drinks, good food, and a bunch of people you should probably meet - all of whom have been building non-stop.
+                                We’re hosting a small opening gathering on <span className="font-bold bg-yellow-100 px-1 decoration-wavy underline decoration-pink-300">Feb 23</span> at our new office in <span className="font-bold bg-yellow-100 px-1 decoration-wavy underline decoration-pink-300">HSR,</span> with the ShopOS team, good music, drinks, food, and a bunch of people who’ve been building interesting things for a while now.
                             </p>
                             <p>
-                                Come hang out. Say hi. Stay as long as you like. <br/>
-                                We even made tote bags and some swag for you :D
+                                We’d love for you to drop by, say hi, and spend some time with us.
+                            </p>
+                            <p>
+                                Hope you can make it.
+                            </p>
+                            <p className="pt-2">
+                                — Team ShopOS
                             </p>
                         </div>
 
