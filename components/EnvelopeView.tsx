@@ -165,7 +165,7 @@ export const EnvelopeView: React.FC<EnvelopeViewProps> = ({ onOpen }) => {
             >
                 <motion.div 
                     layoutId="letter-paper"
-                    className="w-full max-w-2xl bg-white shadow-2xl p-5 sm:p-8 md:p-14 relative -rotate-1 min-h-auto flex flex-col justify-center overflow-hidden my-4"
+                    className="w-full max-w-2xl bg-white shadow-2xl p-5 pt-12 sm:p-8 md:p-14 relative -rotate-1 min-h-auto flex flex-col justify-center overflow-hidden my-8"
                     transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
                 >
                     
