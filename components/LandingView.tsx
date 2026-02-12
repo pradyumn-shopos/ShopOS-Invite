@@ -49,7 +49,7 @@ export const LandingView: React.FC<LandingViewProps> = ({ onYes }) => {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
             <span className="font-mono text-[10px] md:text-xs font-bold tracking-widest uppercase">
-                Feb 23 • HSR Layout • 7:00 PM
+                Feb 25 • HSR Layout • 7:00 PM
             </span>
         </motion.div>
         

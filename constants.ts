@@ -1,6 +1,6 @@
 export const EVENT_DETAILS = {
   name: "ShopOS Office Warming",
-  date: "23rd February",
+  date: "25th February",
   time: "7:00 PM – 11:00 PM",
   location: "Urban Vault 1781, 19th Main Rd, HSR Layout, Bengaluru",
   description: "New office. Good people. Drinks & Dinner. See you there!",

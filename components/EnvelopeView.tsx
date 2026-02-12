@@ -207,7 +207,7 @@ export const EnvelopeView: React.FC<EnvelopeViewProps> = ({ onOpen }) => {
                                 <p>We finally have a place we can call home.</p>
                                 <p>So we’re opening the doors and inviting people we like over to see it.</p>
                                 <p>
-                                    We’re hosting a small opening gathering on <span className="font-bold bg-yellow-100 px-1 decoration-wavy underline decoration-pink-300">Feb 23</span> at our new office in <span className="font-bold bg-yellow-100 px-1 decoration-wavy underline decoration-pink-300">HSR,</span> with the ShopOS team, good music, drinks, food, and a bunch of people who’ve been building interesting things for a while now.
+                                    We’re hosting a small opening gathering on <span className="font-bold bg-yellow-100 px-1 decoration-wavy underline decoration-pink-300">Feb 25</span> at our new office in <span className="font-bold bg-yellow-100 px-1 decoration-wavy underline decoration-pink-300">HSR,</span> with the ShopOS team, good music, drinks, food, and a bunch of people who’ve been building interesting things for a while now.
                                 </p>
                                 <p>We’d love for you to drop by, say hi, and spend some time with us.</p>
                                 <p>Hope you can make it.</p>
@@ -223,7 +223,7 @@ export const EnvelopeView: React.FC<EnvelopeViewProps> = ({ onOpen }) => {
 
                                  <div className="flex justify-center gap-8 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-zinc-500">
                                      <div className="text-center">
-                                         <span className="text-zinc-900 font-bold block text-sm sm:text-base mb-0.5">Feb 23rd</span>
+                                         <span className="text-zinc-900 font-bold block text-sm sm:text-base mb-0.5">Feb 25th</span>
                                          <span>7:00 PM</span>
                                      </div>
                                      <div className="text-center">

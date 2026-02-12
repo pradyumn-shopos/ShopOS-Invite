@@ -15,10 +15,10 @@ export const ConfirmationView: React.FC<ConfirmationViewProps> = ({ onCreateBadg
   }, []);
 
   // Generate Google Calendar Link
-  const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(EVENT_DETAILS.name)}&dates=20260223T190000/20260223T230000&details=${encodeURIComponent(EVENT_DETAILS.description)}&location=${encodeURIComponent(EVENT_DETAILS.location)}&sf=true&output=xml`;
+  const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(EVENT_DETAILS.name)}&dates=20260225T190000/20260225T230000&details=${encodeURIComponent(EVENT_DETAILS.description)}&location=${encodeURIComponent(EVENT_DETAILS.location)}&sf=true&output=xml`;
 
   // Email RSVP Link
-  const emailRsvpUrl = `mailto:ajay@shopos.ai?subject=RSVP: ShopOS Office Warming&body=Hey Ajay,%0A%0ACount me in for the office warming on Feb 23rd!%0A%0ASee you there.`;
+  const emailRsvpUrl = `mailto:ajay@shopos.ai?subject=RSVP: ShopOS Office Warming&body=Hey Ajay,%0A%0ACount me in for the office warming on Feb 25th!%0A%0ASee you there.`;
 
   return (
     <div className="w-full min-h-dvh flex flex-col items-center justify-center p-3 sm:p-4 relative overflow-hidden bg-[#FDFBF7]">
