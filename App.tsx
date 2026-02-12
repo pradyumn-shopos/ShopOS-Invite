@@ -4,6 +4,7 @@ import { TicketView } from './components/TicketView';
 import { EnvelopeView } from './components/EnvelopeView';
 import { ConfirmationView } from './components/ConfirmationView';
 import { Background } from './components/Background';
+import { CassettePlayer } from './components/CassettePlayer';
 import { ViewState } from './types';
 import { AnimatePresence, motion } from 'motion/react';
 
@@ -13,6 +14,7 @@ const App: React.FC = () => {
   return (
     <main className="relative w-full min-h-dvh overflow-hidden bg-[#FDFBF7] text-zinc-900 selection:bg-pink-200">
       <Background />
+      <CassettePlayer />
       
       <AnimatePresence mode="wait">
         {viewState === 'envelope' && (

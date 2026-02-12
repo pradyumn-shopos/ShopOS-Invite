@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Polaroid } from './Polaroid';
 import { SpiralDoodle } from './Doodles';
 import { CameraCapture } from './CameraCapture';
+import { StampTray } from './Stamps';
 import { cn } from '../utils';
 
 interface TicketViewProps {
@@ -159,6 +160,18 @@ export const TicketView: React.FC<TicketViewProps> = ({ onBack }) => {
                         >
                             ← Edit
                         </button>
+                    </motion.div>
+                )}
+
+                {/* Stamp Station */}
+                {step === 'ready' && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.0 }}
+                        className="mt-6 z-30"
+                    >
+                         <StampTray />
                     </motion.div>
                 )}
             </div>
