@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { StarDoodle, SpiralDoodle, CircleDoodle, ArrowDoodle } from './Doodles';
-import { ScratchCard } from './ScratchCard';
 import { EVENT_DETAILS } from '../constants';
 
 interface ConfirmationViewProps {
@@ -99,14 +98,6 @@ export const ConfirmationView: React.FC<ConfirmationViewProps> = ({ onCreateBadg
                 <div className="absolute -right-12 sm:-right-20 top-1/2 -translate-y-1/2 w-10 sm:w-16 h-10 sm:h-16 text-zinc-300 rotate-[30deg] hidden lg:block">
                     <ArrowDoodle />
                 </div>
-            </div>
-
-            {/* Secret Door Code */}
-            <div className="mt-8 flex flex-col items-center gap-2">
-                 <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">Entry Code (Scratch to Reveal)</span>
-                 <ScratchCard width={200} height={60} className="rounded-md shadow-sm">
-                     <span className="font-mono text-xl font-bold tracking-[0.2em] text-zinc-800">SHOP-23</span>
-                 </ScratchCard>
             </div>
         </div>
 
